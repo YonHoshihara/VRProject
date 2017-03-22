@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectVR-broadcaster.Plugins", "KinectVR-broadcaster.Plugins.csproj", "{CBBC9599-B9B3-330A-EA9F-B526C4010E82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectVR-broadcaster", "KinectVR-broadcaster.csproj", "{AD482BD4-F62F-48BA-619F-25D3DDB8701E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectVR-broadcaster.Editor.Plugins", "KinectVR-broadcaster.Editor.Plugins.csproj", "{514E1AC1-D39C-203A-7969-E3D90807DC9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectVR-broadcaster.Editor", "KinectVR-broadcaster.Editor.csproj", "{61E0E832-186D-BAA1-FF40-67CD6BB9849E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBBC9599-B9B3-330A-EA9F-B526C4010E82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBBC9599-B9B3-330A-EA9F-B526C4010E82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBBC9599-B9B3-330A-EA9F-B526C4010E82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBBC9599-B9B3-330A-EA9F-B526C4010E82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD482BD4-F62F-48BA-619F-25D3DDB8701E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD482BD4-F62F-48BA-619F-25D3DDB8701E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD482BD4-F62F-48BA-619F-25D3DDB8701E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD482BD4-F62F-48BA-619F-25D3DDB8701E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{514E1AC1-D39C-203A-7969-E3D90807DC9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{514E1AC1-D39C-203A-7969-E3D90807DC9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{514E1AC1-D39C-203A-7969-E3D90807DC9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{514E1AC1-D39C-203A-7969-E3D90807DC9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61E0E832-186D-BAA1-FF40-67CD6BB9849E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61E0E832-186D-BAA1-FF40-67CD6BB9849E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61E0E832-186D-BAA1-FF40-67CD6BB9849E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61E0E832-186D-BAA1-FF40-67CD6BB9849E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
