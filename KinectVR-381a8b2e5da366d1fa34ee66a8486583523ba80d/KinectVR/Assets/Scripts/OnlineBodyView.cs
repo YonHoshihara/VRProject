@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class OnlineBodyView : MonoBehaviour {
 	private static OnlineBodyView singleton;
+   // public GameObject artilcuation;
 	public static OnlineBodyView s {get {return singleton;}}
 	protected void Awake(){
 		singleton = this;
@@ -29,7 +30,7 @@ public class OnlineBodyView : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		MapAvatarRotation ();
+		//MapAvatarRotation ();
 	}
 
 	public void UpdateBodyList (string data){
@@ -157,9 +158,9 @@ public class OnlineBodyView : MonoBehaviour {
 
 
 							if (part[8] == "0"){
-								bodies [i].parts [r].r.material.color = ObjectManager.s.coolMat.color;
+								//bodies [i].parts [r].r.material.color = ObjectManager.s.coolMat.color;
 								}else{
-								bodies [i].parts [r].r.material.color = new Color(1f,0f,0f);
+								//bodies [i].parts [r].r.material.color = new Color(1f,0f,0f);
 								}
 
 							}
@@ -180,10 +181,11 @@ public class OnlineBodyView : MonoBehaviour {
 	public void MapAvatarRotation (){
 		foreach (OnlineBody body in bodies){
 			if (body != null){
-				//Quaternion newrot = Quaternion.FromToRotation(body.partsDic["WristRight"].go.transform.position,body.partsDic["HandRight"].go.transform.position);
-
-				// Line Renderer Positions
-				body.partsDic["SpineShoulder"].lr.SetPosition(0, body.partsDic["SpineShoulder"].go.transform.position);
+                //Quaternion newrot = Quaternion.FromToRotation(body.partsDic["WristRight"].go.transform.position,body.partsDic["HandRight"].go.transform.position);
+                
+                // Line Renderer Positions
+                
+                body.partsDic["SpineShoulder"].lr.SetPosition(0, body.partsDic["SpineShoulder"].go.transform.position);
 				body.partsDic["SpineShoulder"].lr.SetPosition(1, body.partsDic["Neck"].go.transform.position);
 
 				body.partsDic["Neck"].lr.SetPosition(0, body.partsDic["Neck"].go.transform.position);
@@ -256,12 +258,14 @@ public class OnlineBodyView : MonoBehaviour {
 				}
 
 			}
-		}
 
-	}
+            
+        }
 
 
+        
 
+    }
 }
 
 
@@ -334,8 +338,9 @@ public class BodyPart
 	public BodyPart(string aName, GameObject parentBody, OnlineBody body){
 		parentOnlineBody = body;
 		name = aName;
-		go = GameObject.CreatePrimitive (PrimitiveType.Sphere);
-		//go.GetComponent<Renderer> ().enabled = false;
+       // go = new GameObject();
+        go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        //go.GetComponent<Renderer> ().enabled = false;
 		go.name = name;
 		go.transform.parent = parentBody.transform;
 		go.transform.localScale = new Vector3 (0.2f, 0.2f, 0.2f);

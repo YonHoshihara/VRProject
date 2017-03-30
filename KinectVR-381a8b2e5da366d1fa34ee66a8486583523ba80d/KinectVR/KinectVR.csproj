@@ -109,6 +109,8 @@
     <Compile Include="Assets\Cardboard\Scripts\VRDevices\CardboardAndroidDevice.cs" />
     <Compile Include="Assets\Cardboard\Scripts\VRDevices\CardboardiOSDevice.cs" />
     <Compile Include="Assets\Cardboard\Scripts\VRDevices\UnityEditorDevice.cs" />
+    <Compile Include="Assets\ChangePosition.cs" />
+    <Compile Include="Assets\Destroy.cs" />
     <Compile Include="Assets\GestureEvents.cs" />
     <Compile Include="Assets\KinectVR\S_Kinect\BodySourceManager.cs" />
     <Compile Include="Assets\KinectVR\S_Kinect\BodySourceView.cs" />
