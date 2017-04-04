@@ -72,13 +72,13 @@ public class OnlineBodyView : MonoBehaviour
             if (bodies[i] == null)
             {
                 bodies[i] = new OnlineBody(name);
-                //bodies[i].avatar = Instantiate (ObjectManager.s.avatarPrefab, bodies[i].go.transform.position,  ObjectManager.s.avatarPrefab.rotation) as Transform;
-                //bodies[i].avatar.parent = bodies[i].go.transform;
-                //bodies[i].avatar.localPosition = new Vector3(0,0,0);
-                //bodies[i].anim = bodies[i].avatar.gameObject.GetComponent<Animator>();
-                //bodies[i].character = Instantiate(avatarPrefab, new Vector3(0f, 0f, 0f), avatarPrefab.rotation) as Transform;
-                //MapToKinect map = bodies[i].character.GetComponent<MapToKinect>();
-                //map.AssignBody (name);
+                bodies[i].avatar = Instantiate (ObjectManager.s.avatarPrefab, bodies[i].go.transform.position,  ObjectManager.s.avatarPrefab.rotation) as Transform;
+                bodies[i].avatar.parent = bodies[i].go.transform;
+                bodies[i].avatar.localPosition = new Vector3(0,0,0);
+                bodies[i].anim = bodies[i].avatar.gameObject.GetComponent<Animator>();
+                bodies[i].character = Instantiate(avatarPrefab, new Vector3(0f, 0f, 0f), avatarPrefab.rotation) as Transform;
+                MapToKinect map = bodies[i].character.GetComponent<MapToKinect>();
+                map.AssignBody (name);
 
                 break;
             }
@@ -321,6 +321,7 @@ public class OnlineBody
     public Transform avatar;
     public BodyPart[] parts;
     public Animator anim;
+    public Transform character;
 
 
     public Dictionary<string, BodyPart> partsDic;
