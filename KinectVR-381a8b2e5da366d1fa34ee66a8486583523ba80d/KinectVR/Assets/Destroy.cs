@@ -32,7 +32,7 @@ public class Destroy : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
 
-        Debug.Log("Destruido");
+       // Debug.Log("Destruido");
             Destroy(gameObject);
         
 

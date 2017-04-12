@@ -72,14 +72,18 @@ public class OnlineBodyView : MonoBehaviour
             if (bodies[i] == null)
             {
                 bodies[i] = new OnlineBody(name);
+                /*
                 bodies[i].avatar = Instantiate (ObjectManager.s.avatarPrefab, bodies[i].go.transform.position,  ObjectManager.s.avatarPrefab.rotation) as Transform;
                 bodies[i].avatar.parent = bodies[i].go.transform;
-                bodies[i].avatar.localPosition = new Vector3(0,0,0);
+             //   bodies[i].avatar.localPosition = new Vector3(0,0,0);
                 bodies[i].anim = bodies[i].avatar.gameObject.GetComponent<Animator>();
-                bodies[i].character = Instantiate(avatarPrefab, new Vector3(0f, 0f, 0f), avatarPrefab.rotation) as Transform;
-                MapToKinect map = bodies[i].character.GetComponent<MapToKinect>();
+                //bodies[i].character = Instantiate(avatarPrefab, new Vector3(0f, 0f, 0f), avatarPrefab.rotation) as Transform;
+                
+                MapToKinect map = bodies[i].avatar.GetComponent<MapToKinect>();
                 map.AssignBody (name);
-
+                //Debug.Log(map.kSpineBase);
+               
+                */
                 break;
             }
 
@@ -172,8 +176,8 @@ public class OnlineBodyView : MonoBehaviour
                             {
                                 Vector3 pos = new Vector3(0f, 0f, 0f);
                                 Quaternion rot = new Quaternion(0f, 0f, 0f, 0f);
-
                                 float.TryParse(part[1], out pos.x);
+                               //Debug.Log(part[0]);
                                 float.TryParse(part[2], out pos.y);
                                 float.TryParse(part[3], out pos.z);
 
@@ -183,7 +187,8 @@ public class OnlineBodyView : MonoBehaviour
                                 float.TryParse(part[7], out rot.w);
 
                                 bodies[i].parts[r].go.transform.localPosition = pos;
-                                //bodies [i].parts [r].go.transform.localRotation = rot;
+                                
+                               bodies [i].parts [r].go.transform.localRotation = rot;
 
 
                                 bodies[i].parts[r].infered = int.Parse(part[8]);
@@ -219,11 +224,19 @@ public class OnlineBodyView : MonoBehaviour
         {
             if (body != null)
             {
+
+                //  body.character.GetComponent<MapToKinect>().AssignBody(body.name);
+
+
+               // Debug.Log(body.partsDic["ShoulderLeft"].go.transform.rotation);
+              //  body.avatar.GetComponent<MapToKinect>().RefreshMapping();
+                
+                
                 //Quaternion newrot = Quaternion.FromToRotation(body.partsDic["WristRight"].go.transform.position,body.partsDic["HandRight"].go.transform.position);
 
                 // Line Renderer Positions
 
-                /*  
+                  
                   body.partsDic["SpineShoulder"].lr.SetPosition(0, body.partsDic["SpineShoulder"].go.transform.position);
                   body.partsDic["SpineShoulder"].lr.SetPosition(1, body.partsDic["Neck"].go.transform.position);
 
@@ -277,7 +290,7 @@ public class OnlineBodyView : MonoBehaviour
 
                   body.partsDic["FootLeft"].lr.SetPosition(0, body.partsDic["FootLeft"].go.transform.position);
                   body.partsDic["FootLeft"].lr.SetPosition(1, body.partsDic["AnkleLeft"].go.transform.position);
-  */
+  
 
                 // Joint Rotations
                 body.partsDic["WristRight"].go.transform.LookAt(body.partsDic["HandTipRight"].go.transform.position);
@@ -390,7 +403,7 @@ public class BodyPart
         //MeshRenderer m;
         // go = new GameObject();
         go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        go.GetComponent<MeshRenderer>().enabled = false;
+       // go.GetComponent<MeshRenderer>().enabled = false;
 
         //go.GetComponent<Renderer> ().enabled = false;
         go.name = name;

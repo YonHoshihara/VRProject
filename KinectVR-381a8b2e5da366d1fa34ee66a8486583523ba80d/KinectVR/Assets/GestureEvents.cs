@@ -97,7 +97,7 @@ public class GestureEvents : MonoBehaviour
                 DirectionFinal = body.partsDic["WristLeft"].go.transform.position - body.partsDic["ShoulderLeft"].go.transform.position;
                 if ((Mathf.Abs(Mathf.Abs (initialpositionright)-Mathf.Abs(finalpositionright)) >= .5f) && (Mathf.Abs(Mathf.Abs(initialpositionleft)- Mathf.Abs (finalpositionleft)) >= .5f))
                 {
-                    Debug.Log("Esquerda");
+                  //  Debug.Log("Esquerda");
                     PushBallCat(DirectionFinal);
                     StopCoroutine("GesturePush");
                 }
@@ -110,7 +110,7 @@ public class GestureEvents : MonoBehaviour
 
                 if ((Mathf.Abs(Mathf.Abs(initialpositionright) - Mathf.Abs(finalpositionright)) >= .5f) && (Mathf.Abs(Mathf.Abs(initialpositionleft) - Mathf.Abs(finalpositionleft)) >= .5f))
                 {
-                    Debug.Log("Direita");
+                  //  Debug.Log("Direita");
                     PushBallCat(DirectionFinal);
                     
                     StopCoroutine("GesturePush");
@@ -123,7 +123,7 @@ public class GestureEvents : MonoBehaviour
                 DirectionFinal = new Vector3(0,0,-1);
                 if ((Mathf.Abs(Mathf.Abs(initialpositionright) - Mathf.Abs(finalpositionright)) >= 1f) && (Mathf.Abs(Mathf.Abs(initialpositionleft) - Mathf.Abs(finalpositionleft)) >= 1f))
                 {
-                    Debug.Log("Frente");
+                    //Debug.Log("Frente");
                     PushBallCat(DirectionFinal);
                     StopCoroutine("GesturePush");
                 }
@@ -195,7 +195,7 @@ public class GestureEvents : MonoBehaviour
                 if (CanIAddForce)
                 {
                     Vector3 v = Direction.normalized;
-                    Debug.Log("Força adicionada"+ v.normalized);
+                   // Debug.Log("Força adicionada"+ v.normalized);
                     obj.GetComponent<Rigidbody>().velocity = v*thrust ;
                     CanPush = false;
                     CanIAddForce = false;
