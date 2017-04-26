@@ -131,6 +131,7 @@
     <Compile Include="Assets\S_Networking\Loom.cs" />
     <Compile Include="Assets\Scripts\AvatarOnlineBody.cs" />
     <Compile Include="Assets\Scripts\CameraToMirror.cs" />
+    <Compile Include="Assets\Scripts\Creature.cs" />
     <Compile Include="Assets\Scripts\FollowTransform.cs" />
     <Compile Include="Assets\Scripts\HandModel.cs" />
     <Compile Include="Assets\Scripts\HelperMethods.cs" />
