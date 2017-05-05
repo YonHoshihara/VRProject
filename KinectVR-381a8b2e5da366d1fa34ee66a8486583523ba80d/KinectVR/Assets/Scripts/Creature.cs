@@ -29,9 +29,18 @@ public class Creature : MonoBehaviour {
             if (life <= 0)
             {
                 anim.SetTrigger("Die");
+                gameObject.GetComponent<BoxCollider>().enabled = false;
                 yield return new WaitForSeconds(2);
                 Destroy(gameObject);
             }
+        }
+        if(obj.gameObject.name == "SpineMid")
+        {
+            gameObject.GetComponent<CreatureMoviment>().enabled = false;
+            anim.SetTrigger("Attack");
+
+            yield return new WaitForSeconds(2);
+            Debug.Log("Morto");
         }
     }
 

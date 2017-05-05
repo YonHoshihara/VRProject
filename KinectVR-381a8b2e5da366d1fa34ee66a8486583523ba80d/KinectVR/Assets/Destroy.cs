@@ -29,7 +29,7 @@ public class Destroy : MonoBehaviour
 
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
 
        // Debug.Log("Destruido");

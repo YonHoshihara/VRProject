@@ -129,9 +129,12 @@
     <Compile Include="Assets\S_Networking\AliceSync.cs" />
     <Compile Include="Assets\S_Networking\DebugManager.cs" />
     <Compile Include="Assets\S_Networking\Loom.cs" />
+    <Compile Include="Assets\Scripts\AddBoxColliderToPlayer.cs" />
     <Compile Include="Assets\Scripts\AvatarOnlineBody.cs" />
     <Compile Include="Assets\Scripts\CameraToMirror.cs" />
     <Compile Include="Assets\Scripts\Creature.cs" />
+    <Compile Include="Assets\Scripts\CreatureMoviment.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\FollowTransform.cs" />
     <Compile Include="Assets\Scripts\HandModel.cs" />
     <Compile Include="Assets\Scripts\HelperMethods.cs" />

@@ -410,10 +410,17 @@ public class BodyPart
         go.transform.parent = parentBody.transform;
         go.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         go.layer = LayerMask.NameToLayer("PlayerPoints");
+        if (aName == "SpineMid")
+        {
+            go.AddComponent<BoxCollider>();
+        }else
+        {
+            go.AddComponent<SphereCollider>();
+        }
         Rigidbody rb = go.AddComponent<Rigidbody>();
         rb.useGravity = false;
         rb.isKinematic = true;
-        go.AddComponent<SphereCollider>();
+       // go.AddComponent<SphereCollider>();
         r = go.GetComponent<Renderer>();
         r.material = ObjectManager.s.coolMat;
 
