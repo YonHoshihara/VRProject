@@ -95,7 +95,7 @@ public class GestureEvents : MonoBehaviour
             {
 
                 DirectionFinal = body.partsDic["WristLeft"].go.transform.position - body.partsDic["ShoulderLeft"].go.transform.position;
-                if ((Mathf.Abs(Mathf.Abs (initialpositionright)-Mathf.Abs(finalpositionright)) >= .5f) && (Mathf.Abs(Mathf.Abs(initialpositionleft)- Mathf.Abs (finalpositionleft)) >= .5f))
+                if ((Mathf.Abs(Mathf.Abs (initialpositionright)-Mathf.Abs(finalpositionright)) >= .3f) && (Mathf.Abs(Mathf.Abs(initialpositionleft)- Mathf.Abs (finalpositionleft)) >= .3f))
                 {
                   //  Debug.Log("Esquerda");
                     PushBallCat(DirectionFinal);

@@ -236,7 +236,7 @@ public class OnlineBodyView : MonoBehaviour
 
                 // Line Renderer Positions
 
-                  
+             /*     
                   body.partsDic["SpineShoulder"].lr.SetPosition(0, body.partsDic["SpineShoulder"].go.transform.position);
                   body.partsDic["SpineShoulder"].lr.SetPosition(1, body.partsDic["Neck"].go.transform.position);
 
@@ -290,7 +290,7 @@ public class OnlineBodyView : MonoBehaviour
 
                   body.partsDic["FootLeft"].lr.SetPosition(0, body.partsDic["FootLeft"].go.transform.position);
                   body.partsDic["FootLeft"].lr.SetPosition(1, body.partsDic["AnkleLeft"].go.transform.position);
-  
+  */
 
                 // Joint Rotations
                 body.partsDic["WristRight"].go.transform.LookAt(body.partsDic["HandTipRight"].go.transform.position);
@@ -393,7 +393,7 @@ public class BodyPart
     public Transform transform;
     public int infered;
     public Renderer r;
-    public LineRenderer lr;
+   // public LineRenderer lr;
     public OnlineBody parentOnlineBody;
 
     public BodyPart(string aName, GameObject parentBody, OnlineBody body)
@@ -424,11 +424,11 @@ public class BodyPart
         r = go.GetComponent<Renderer>();
         r.material = ObjectManager.s.coolMat;
 
-        lr = go.AddComponent<LineRenderer>();
-        lr.SetVertexCount(2);
-        lr.SetWidth(.1f, .1f);
+      //  lr = go.AddComponent<LineRenderer>();
+      //  lr.SetVertexCount(2);
+       // lr.SetWidth(.1f, .1f);
         //lr.SetColors (Color.black, Color.black);
-        lr.material = ObjectManager.s.lineMat;
+        //lr.material = ObjectManager.s.lineMat;
 
         if (aName == "HandTipLeft" || aName == "HandTipRight" || aName == "HandLeft" || aName == "HandRight" || aName == "ThumbRight" || aName == "ThumbLeft")
         {

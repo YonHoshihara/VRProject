@@ -6,6 +6,7 @@ public class CreatureMoviment : MonoBehaviour {
 
     private Animator anim;
     private Transform obj;
+    private Vector3 directon;
     public float maxspeed;
     private float speed;
     
@@ -14,6 +15,7 @@ public class CreatureMoviment : MonoBehaviour {
 	void Start () {
         anim = gameObject.GetComponent<Animator>();
         obj = GameObject.Find("SpineMid").GetComponent<Transform>();
+        directon = new Vector3(obj.position.x,gameObject.transform.position.y,obj.position.z);
         speed = (Random.Range(6,maxspeed));
         	
 	}
@@ -25,7 +27,7 @@ public class CreatureMoviment : MonoBehaviour {
         if ((anim.GetCurrentAnimatorStateInfo(0).IsName("creature1run"))&&(obj!=null))
         {
             float step = speed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, obj.position, step);
+            transform.position = Vector3.MoveTowards(transform.position,directon, step);
         }
 
 

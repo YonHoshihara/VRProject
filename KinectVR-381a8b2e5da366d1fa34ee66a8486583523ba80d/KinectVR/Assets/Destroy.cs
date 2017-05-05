@@ -31,9 +31,12 @@ public class Destroy : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-
-       // Debug.Log("Destruido");
+        if(collision.gameObject.tag == "Enemy")
+        {
             Destroy(gameObject);
+        }
+       // Debug.Log("Destruido");
+            
         
 
     }
