@@ -82,53 +82,69 @@ public class GestureEvents : MonoBehaviour
     {
         if(body!= null)
         {
+           
+    
             float initialpositionright = body.partsDic["WristRight"].go.transform.position.z;
-
             float initialpositionleft = body.partsDic["WristLeft"].go.transform.position.z;
             Transform obj = GameObject.Find("PowerBall(Clone)").GetComponent<Transform>();
             yield return new WaitForSeconds(.5f);
             float finalpositionright = body.partsDic["WristRight"].go.transform.position.z;
             float finalpositionleft = body.partsDic["WristLeft"].go.transform.position.z;
             Vector3 DirectionFinal= new Vector3(0,0,0);
-         
-            if ((body.partsDic["WristRight"].go.transform.position.x >= body.partsDic["Neck"].go.transform.position.x) && (body.partsDic["WristLeft"].go.transform.position.x > body.partsDic["Neck"].go.transform.position.x))
-            {
+            Vector3 SpineBase = new Vector3(0,0,0);
 
-                DirectionFinal = body.partsDic["WristLeft"].go.transform.position - body.partsDic["ShoulderLeft"].go.transform.position;
-                if ((Mathf.Abs(Mathf.Abs (initialpositionright)-Mathf.Abs(finalpositionright)) >= .3f) && (Mathf.Abs(Mathf.Abs(initialpositionleft)- Mathf.Abs (finalpositionleft)) >= .3f))
-                {
-                  //  Debug.Log("Esquerda");
-                    PushBallCat(DirectionFinal);
-                    StopCoroutine("GesturePush");
-                }
-               
+            if ((Mathf.Abs(Mathf.Abs(initialpositionright) - Mathf.Abs(finalpositionright)) >= .5f) && (Mathf.Abs(Mathf.Abs(initialpositionleft) - Mathf.Abs(finalpositionleft)) >= .5f))
+            {
+                //  Debug.Log("Esquerda");
+                SpineBase = body.partsDic["SpineMid"].go.transform.position;
+                Vector3 Mid = ((body.partsDic["WristRight"].go.transform.position + body.partsDic["WristLeft"].go.transform.position) / 2);
+                Vector3 Spine = new Vector3(SpineBase.x, Mid.y,SpineBase.z);
+                DirectionFinal = Mid - Spine;
+                PushBallCat(DirectionFinal);
+                StopCoroutine("GesturePush");
             }
 
-            if ((body.partsDic["WristRight"].go.transform.position.x < body.partsDic["Neck"].go.transform.position.x) && (body.partsDic["WristLeft"].go.transform.position.x < body.partsDic["Neck"].go.transform.position.x))
-            {
-                DirectionFinal = body.partsDic["WristRight"].go.transform.position - body.partsDic["ShoulderRight"].go.transform.position;
+        
+        /*
+        if ((body.partsDic["WristRight"].go.transform.position.x >= body.partsDic["Neck"].go.transform.position.x) && (body.partsDic["WristLeft"].go.transform.position.x > body.partsDic["Neck"].go.transform.position.x))
+        {
 
-                if ((Mathf.Abs(Mathf.Abs(initialpositionright) - Mathf.Abs(finalpositionright)) >= .5f) && (Mathf.Abs(Mathf.Abs(initialpositionleft) - Mathf.Abs(finalpositionleft)) >= .5f))
-                {
-                  //  Debug.Log("Direita");
-                    PushBallCat(DirectionFinal);
-                    
-                    StopCoroutine("GesturePush");
-                }
-               
+            DirectionFinal = body.partsDic["WristLeft"].go.transform.position - body.partsDic["ShoulderLeft"].go.transform.position;
+            if ((Mathf.Abs(Mathf.Abs (initialpositionright)-Mathf.Abs(finalpositionright)) >= .3f) && (Mathf.Abs(Mathf.Abs(initialpositionleft)- Mathf.Abs (finalpositionleft)) >= .3f))
+            {
+              //  Debug.Log("Esquerda");
+                PushBallCat(DirectionFinal);
+                StopCoroutine("GesturePush");
             }
 
-            if ((body.partsDic["WristRight"].go.transform.position.x < body.partsDic["Neck"].go.transform.position.x) && (body.partsDic["WristLeft"].go.transform.position.x > body.partsDic["Neck"].go.transform.position.x))
+        }
+
+        if ((body.partsDic["WristRight"].go.transform.position.x < body.partsDic["Neck"].go.transform.position.x) && (body.partsDic["WristLeft"].go.transform.position.x < body.partsDic["Neck"].go.transform.position.x))
+        {
+            DirectionFinal = body.partsDic["WristRight"].go.transform.position - body.partsDic["ShoulderRight"].go.transform.position;
+
+            if ((Mathf.Abs(Mathf.Abs(initialpositionright) - Mathf.Abs(finalpositionright)) >= .5f) && (Mathf.Abs(Mathf.Abs(initialpositionleft) - Mathf.Abs(finalpositionleft)) >= .5f))
             {
-                DirectionFinal = new Vector3(0,0,-1);
-                if ((Mathf.Abs(Mathf.Abs(initialpositionright) - Mathf.Abs(finalpositionright)) >= 1f) && (Mathf.Abs(Mathf.Abs(initialpositionleft) - Mathf.Abs(finalpositionleft)) >= 1f))
-                {
-                    //Debug.Log("Frente");
-                    PushBallCat(DirectionFinal);
-                    StopCoroutine("GesturePush");
-                }
-               
+              //  Debug.Log("Direita");
+                PushBallCat(DirectionFinal);
+
+                StopCoroutine("GesturePush");
             }
+
+        }
+
+        if ((body.partsDic["WristRight"].go.transform.position.x < body.partsDic["Neck"].go.transform.position.x) && (body.partsDic["WristLeft"].go.transform.position.x > body.partsDic["Neck"].go.transform.position.x))
+        {
+            DirectionFinal = new Vector3(0,0,-1);
+            if ((Mathf.Abs(Mathf.Abs(initialpositionright) - Mathf.Abs(finalpositionright)) >= 1f) && (Mathf.Abs(Mathf.Abs(initialpositionleft) - Mathf.Abs(finalpositionleft)) >= 1f))
+            {
+                //Debug.Log("Frente");
+                PushBallCat(DirectionFinal);
+                StopCoroutine("GesturePush");
+            }
+
+        }
+        */
     }
         
     }
@@ -195,17 +211,11 @@ public class GestureEvents : MonoBehaviour
                 if (CanIAddForce)
                 {
                     Vector3 v = Direction.normalized;
-                   // Debug.Log("Força adicionada"+ v.normalized);
                     obj.GetComponent<Rigidbody>().velocity = v*thrust ;
                     CanPush = false;
                     CanIAddForce = false;
                 }
-                
-
             }
-
-
-            // Debug.Log("Vaiiiiiiiiiii Draciel");
         }
     }
 
