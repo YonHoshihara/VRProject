@@ -1,8 +1,8 @@
 // --------------------------------------------------- STATIC VARIABLES
 // local IP address
-var HOST = '192.168.0.101';
+var HOST = '192.168.0.137';
 // internet IP address
-var PUBHOST = '192.168.1.137';
+var PUBHOST = '192.168.0.137';
 // port for client connections
 var DEVICEPORT = 5000;
 // clients array

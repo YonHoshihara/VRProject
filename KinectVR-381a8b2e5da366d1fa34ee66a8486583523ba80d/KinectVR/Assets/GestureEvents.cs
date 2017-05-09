@@ -10,7 +10,7 @@ public class GestureEvents : MonoBehaviour
     bool CanPush;
     
     Vector3 PositionToInstantiate;
-    public float DistanceSpanwToPlayer;
+    public float DistanceSpawnToPlayer;
     public float thrust;
     public float DistanceBetwenHands,MaxDistanceBHands;
     public float MaxZBall;
@@ -174,7 +174,7 @@ public class GestureEvents : MonoBehaviour
                 //StartCoroutine(GesturePush(body));
                 if ((GestureTwoHandsUP(body))&&(CanSpawn))
                 {
-                    PositionToInstantiate = new Vector3(body.partsDic["Neck"].go.transform.position.x, body.partsDic["Neck"].go.transform.position.y, body.partsDic["Neck"].go.transform.position.z + DistanceSpanwToPlayer);
+                    PositionToInstantiate = new Vector3(body.partsDic["Neck"].go.transform.position.x, body.partsDic["Neck"].go.transform.position.y, body.partsDic["Neck"].go.transform.position.z + DistanceSpawnToPlayer);
                     CanSpawn = false;
 
                     return true;
@@ -217,7 +217,7 @@ public class GestureEvents : MonoBehaviour
         if (rb.velocity.x ==0)
         {
             Vector3 BallPosition = (body.partsDic["WristRight"].go.transform.position + body.partsDic["WristLeft"].go.transform.position) / 2;
-            obj.transform.position = new Vector3(BallPosition.x, BallPosition.y, BallPosition.z + DistanceSpanwToPlayer);
+            obj.transform.position = new Vector3(BallPosition.x, BallPosition.y, BallPosition.z + DistanceSpawnToPlayer);
 
         }
 
@@ -229,7 +229,7 @@ public class GestureEvents : MonoBehaviour
             if (Mathf.Abs(body.partsDic["WristRight"].go.transform.position.x - body.partsDic["WristLeft"].go.transform.position.x) <= DistanceBetwenHands)
             {
 
-                PositionToInstantiate = new Vector3(body.partsDic["Neck"].go.transform.position.x, body.partsDic["Neck"].go.transform.position.y, body.partsDic["Neck"].go.transform.position.z + DistanceSpanwToPlayer);
+                PositionToInstantiate = new Vector3(body.partsDic["Neck"].go.transform.position.x, body.partsDic["Neck"].go.transform.position.y, body.partsDic["Neck"].go.transform.position.z + DistanceSpawnToPlayer);
                 if (CanSpawn)
                 {
                     Instantiate(Sphere, PositionToInstantiate, Quaternion.identity);
@@ -252,7 +252,9 @@ public class GestureEvents : MonoBehaviour
                       CanPush = false;
                       obj.localScale = new Vector3(distancia * percent / 100, distancia * percent / 100, distancia * percent / 100);
                       Vector3 BallPosition = (body.partsDic["WristRight"].go.transform.position + body.partsDic["WristLeft"].go.transform.position) / 2;
-                      obj.transform.position = new Vector3(BallPosition.x, BallPosition.y, BallPosition.z-2);
+                     
+                    obj.transform.position = Vector3.Lerp(obj.transform.position, BallPosition, Time.deltaTime * 2);  
+                   // obj.transform.position = new Vector3(BallPosition.x, BallPosition.y, BallPosition.z-2);
             }
             if ((obj.localScale.z >= MaxZBall)){
                      CanPush = true;

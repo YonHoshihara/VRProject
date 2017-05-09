@@ -108,6 +108,7 @@
     <Compile Include="Assets\FightingUnityChan_FreeAsset\FightingUnityChan_FreeAsset\Scripts\CameraController.cs" />
     <Compile Include="Assets\FightingUnityChan_FreeAsset\FightingUnityChan_FreeAsset\Scripts\IdleChanger.cs" />
     <Compile Include="Assets\GestureEvents.cs" />
+    <Compile Include="Assets\HandGesture.cs" />
     <Compile Include="Assets\KinectVR\S_Kinect\BodySourceManager.cs" />
     <Compile Include="Assets\KinectVR\S_Kinect\BodySourceView.cs" />
     <Compile Include="Assets\KinectVR\S_Kinect\ColorSourceManager.cs" />
