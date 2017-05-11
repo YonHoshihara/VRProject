@@ -5,9 +5,6 @@ using UnityEngine;
 public class HandGesture : MonoBehaviour {
 
     private OnlineBody[] bodies;
-
-
-
     public float minDist,maxDist;
     float deltaDist;
     Transform leftHand, rightHand;
